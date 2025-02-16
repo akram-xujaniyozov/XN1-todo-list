@@ -6,7 +6,9 @@ import App from "./App";
 import "./index.css";
 
 createRoot(document.getElementById("root")).render(
-  <TodosContextProvider>
-    <App />
-  </TodosContextProvider>
+  <StrictMode>
+    <TodosContextProvider>
+      <App />
+    </TodosContextProvider>
+  </StrictMode>
 );

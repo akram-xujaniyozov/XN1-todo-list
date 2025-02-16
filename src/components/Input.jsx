@@ -1,12 +1,13 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import { useTodosContext } from "../context/TodoContext";
+import { addTodo } from "../store";
 
 // 1 Controlled Components (state) vs Uncontrolled components (ref)
 // 2 Two-way binding
 export const Input = () => {
   // const [inputValue, setInputValue] = useState("");
   const inputRef = useRef(null);
-  const { handleAddTodos } = useTodosContext();
+  const { dispatch } = useTodosContext();
 
   // const handleChange = (event) => {
   //   setInputValue(event.target.value);
@@ -16,7 +17,7 @@ export const Input = () => {
     event.preventDefault();
     const inputValue = inputRef.current.value;
     if (!inputValue.trim()) return;
-    handleAddTodos(inputValue);
+    dispatch(addTodo(inputValue));
 
     // setInputValue("");
 
